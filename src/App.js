@@ -19,6 +19,8 @@ class App extends Component {
   }
 
   moveElevator = (floor) => {
+    let {elOne, elTwo, elThree} = this.state;
+    if(elOne)
 
   }
 
