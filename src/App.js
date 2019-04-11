@@ -20,8 +20,35 @@ class App extends Component {
 
   moveElevator = (floor) => {
     let {elOne, elTwo, elThree} = this.state;
+    let selectedFloor = floor;
+    let elFloor = elOne;
     console.log(elOne);
     console.log(floor);
+    const setFloor = () => {
+      if(elOne < selectedFloor){
+        ++elFloor;
+        this.setState({
+          elOne: elFloor
+        })
+      }
+      else if(elOne > selectedFloor){
+        --elFloor;
+        this.setState({
+          elOne: elFloor
+        })
+      }
+      else {
+        this.setState({
+          oneDoor: 'open'
+        })
+        this.clearInterval();
+      }
+    }
+    setInterval(setFloor, 1000);
+  }
+
+  clearInterval = () => {
+    clearInterval();
   }
 
   selectFloor = (e) =>{
