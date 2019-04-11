@@ -14,20 +14,21 @@ class App extends Component {
       oneDoor: 'closed',
       twoDoor: 'closed',
       threeDoor: 'closed',
-      selectedFloor: ''
+      selectedFloor: 0
     }
   }
 
   moveElevator = (floor) => {
     let {elOne, elTwo, elThree} = this.state;
-    if(elOne)
-
+    console.log(elOne);
+    console.log(floor);
   }
 
   selectFloor = (e) =>{
     console.log(e.target.value);
+    this.moveElevator(+e.target.value);
     this.setState({
-      selectFloor: e.target.value
+      selectedFloor: +e.target.value
     })
   }
 
