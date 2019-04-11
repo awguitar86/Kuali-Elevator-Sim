@@ -19,36 +19,37 @@ class App extends Component {
   }
 
   moveElevator = (floor) => {
-    let {elOne, elTwo, elThree} = this.state;
-    let selectedFloor = floor;
-    let elFloor = elOne;
-    console.log(elOne);
-    console.log(floor);
+    let elFloor = this.state.elOne;
     const setFloor = () => {
-      if(elOne < selectedFloor){
+      console.log(this.state.elOne);
+      console.log(floor);
+      if(this.state.elOne < floor){
         ++elFloor;
         this.setState({
-          elOne: elFloor
+          elOne: elFloor,
+          oneIsMoving: true
         })
       }
-      else if(elOne > selectedFloor){
+      else if(this.state.elOne > floor){
         --elFloor;
         this.setState({
-          elOne: elFloor
+          elOne: elFloor,
+          oneIsMoving: true
         })
       }
       else {
         this.setState({
-          oneDoor: 'open'
+          oneDoor: 'open',
+          oneIsMoving: false
         })
         this.clearInterval();
       }
     }
-    setInterval(setFloor, 1000);
+    this.interval = setInterval(setFloor, 1000);
   }
 
   clearInterval = () => {
-    clearInterval();
+    clearInterval(this.interval);
   }
 
   selectFloor = (e) =>{
@@ -93,6 +94,7 @@ class App extends Component {
           <button className="btn7" value={7} onClick={e => this.selectFloor(e)}>7</button>
           <button className="btn8" value={8} onClick={e => this.selectFloor(e)}>8</button>
           <button className="btn9" value={9} onClick={e => this.selectFloor(e)}>9</button>
+          <div className="fake-btn"></div>
           <button className="btn10" value={10} onClick={e => this.selectFloor(e)}>10</button>
         </div>
       </div>
