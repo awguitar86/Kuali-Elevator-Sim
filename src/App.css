@@ -16,7 +16,7 @@ header {
 .elevator {
   width: 200px;
   height: 200px;
-  background: grey;
+  background: #446291;
   display: flex;
   flex-direction: column;
   justify-content: center;

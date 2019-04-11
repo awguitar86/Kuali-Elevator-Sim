@@ -8,11 +8,18 @@ class App extends Component {
       elOne: 1,
       elTwo: 1,
       elThree: 1,
+      oneIsMoving: false,
+      twoIsMoving: false,
+      threeIsMoving: false,
       oneDoor: 'closed',
       twoDoor: 'closed',
       threeDoor: 'closed',
       selectedFloor: ''
     }
+  }
+
+  moveElevator = (floor) => {
+
   }
 
   selectFloor = (e) =>{
